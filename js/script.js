@@ -101,64 +101,123 @@ anteprime[index].classList.add('active')
 outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
 
 
+setInterval (cambiaImmagineInGiu , 3000 )
+
 // crea una funzione tramite il click sul tasto 'freccia-giu'
 frecciaGiuEl.addEventListener ('click' , function(){
-    
-    // fa aumentare il contatore index di uno appena chlicchiamo
-    index++;
 
-    // rimuove la classe active dall'immagine precedente
-    anteprime[index - 1].classList.remove('active')
+    cambiaImmagineInGiu()
     
-    // condizione per regolare il ciclo infinito 
-    if (index == immagini.length) {
-        // se la condizione è vera significa che siamo sull'ultimo elemento della lista 
-        // quindi resettiamo index a 0 per tornare sul primo elemento
-        index = 0
-    }
+    // // fa aumentare il contatore index di uno appena chlicchiamo
+    // index++;
+
+    // // rimuove la classe active dall'immagine precedente
+    // anteprime[index - 1].classList.remove('active')
     
-    // aggiunge la classe active
-    anteprime[index].classList.add('active')
-    // sostituisce l'imaggine che l'immagine dell'elemento con index corrente subito dopo il click
-    contImgEl.src = immagini[index].image
-    // aggiunge il titolo e la descrizione riferite sempre al elemento della lista corrente (quindi specificando l'index contatore)
-    outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
+    // // condizione per regolare il ciclo infinito 
+    // if (index == immagini.length) {
+    //     // se la condizione è vera significa che siamo sull'ultimo elemento della lista 
+    //     // quindi resettiamo index a 0 per tornare sul primo elemento
+    //     index = 0
+    // }
+    
+    // // aggiunge la classe active
+    // anteprime[index].classList.add('active')
+    // // sostituisce l'imaggine che l'immagine dell'elemento con index corrente subito dopo il click
+    // contImgEl.src = immagini[index].image
+    // // aggiunge il titolo e la descrizione riferite sempre al elemento della lista corrente (quindi specificando l'index contatore)
+    // outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
      
 })
 
 // crea una funzione tramite il click dul tasto 'freccia-su' in pagina
 frecciaSuEl.addEventListener ('click' , function() {
 
-    // fa diminuire l'index di 1 appena clicchiamo
-    index--;
-    
-// per regolare il ciclo infinito
-    // condizione che controlla se l'index scenda sotto lo zero e quindi 'sotto il primo elemento dell'array che non esiste
-    if (index == -1) {
+    cambiaImmagineInSu()
 
-        // essendo entrato qui,quindi con condizione vera
-            // rimuove la classe active al primo elemento dell'array
-        anteprime[0].classList.remove('active');
-            // riassegna l'indice in modo da bersagliare l'ultimo elemento della lista 
-            // (sapendo che la lunghezza della lista non combacia con l'index)
-            // esempio: se l'array contiene 7 elementi, l'index dell'ultimo elemento è 6 perche si parte da 0
-        index = immagini.length - 1;
-    // altrimenti
-    } else {
-        // se la condizione è falsa togliamo la classe active all'elemento sopra di esso specificando che l'elemento con index aumentato di uno gli va tolta la classe
-        anteprime[index + 1].classList.remove('active');
-
-    }
+//     // fa diminuire l'index di 1 appena clicchiamo
+//     index--;
     
-    // assegna all'elemento con l'index corrente la classe active
-    anteprime[index].classList.add('active')
-    // sostituisce l'imaggine che l'immagine dell'elemento con index corrente subito dopo il click
-    contImgEl.src = immagini[index].image
-    // aggiunge il titolo e la descrizione riferite sempre al elemento della lista corrente (quindi specificando l'index contatore)
-    outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
+// // per regolare il ciclo infinito
+//     // condizione che controlla se l'index scenda sotto lo zero e quindi 'sotto il primo elemento dell'array che non esiste
+//     if (index == -1) {
+
+//         // essendo entrato qui,quindi con condizione vera
+//             // rimuove la classe active al primo elemento dell'array
+//         anteprime[0].classList.remove('active');
+//             // riassegna l'indice in modo da bersagliare l'ultimo elemento della lista 
+//             // (sapendo che la lunghezza della lista non combacia con l'index)
+//             // esempio: se l'array contiene 7 elementi, l'index dell'ultimo elemento è 6 perche si parte da 0
+//         index = immagini.length - 1;
+//     // altrimenti
+//     } else {
+//         // se la condizione è falsa togliamo la classe active all'elemento sopra di esso specificando che l'elemento con index aumentato di uno gli va tolta la classe
+//         anteprime[index + 1].classList.remove('active');
+
+//     }
+    
+//     // assegna all'elemento con l'index corrente la classe active
+//     anteprime[index].classList.add('active')
+//     // sostituisce l'imaggine che l'immagine dell'elemento con index corrente subito dopo il click
+//     contImgEl.src = immagini[index].image
+//     // aggiunge il titolo e la descrizione riferite sempre al elemento della lista corrente (quindi specificando l'index contatore)
+//     outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
 
 
 }) 
 
 
 
+function cambiaImmagineInGiu() {
+
+        // fa aumentare il contatore index di uno appena chlicchiamo
+        index++;
+
+        // rimuove la classe active dall'immagine precedente
+        anteprime[index - 1].classList.remove('active')
+        
+        // condizione per regolare il ciclo infinito 
+        if (index == immagini.length) {
+            // se la condizione è vera significa che siamo sull'ultimo elemento della lista 
+            // quindi resettiamo index a 0 per tornare sul primo elemento
+            index = 0
+        }
+        
+        // aggiunge la classe active
+        anteprime[index].classList.add('active')
+        // sostituisce l'imaggine che l'immagine dell'elemento con index corrente subito dopo il click
+        contImgEl.src = immagini[index].image
+        // aggiunge il titolo e la descrizione riferite sempre al elemento della lista corrente (quindi specificando l'index contatore)
+        outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
+
+}
+
+function cambiaImmagineInSu() {
+        // fa diminuire l'index di 1 appena clicchiamo
+        index--;
+    
+        // per regolare il ciclo infinito
+            // condizione che controlla se l'index scenda sotto lo zero e quindi 'sotto il primo elemento dell'array che non esiste
+            if (index == -1) {
+        
+                // essendo entrato qui,quindi con condizione vera
+                    // rimuove la classe active al primo elemento dell'array
+                anteprime[0].classList.remove('active');
+                    // riassegna l'indice in modo da bersagliare l'ultimo elemento della lista 
+                    // (sapendo che la lunghezza della lista non combacia con l'index)
+                    // esempio: se l'array contiene 7 elementi, l'index dell'ultimo elemento è 6 perche si parte da 0
+                index = immagini.length - 1;
+            // altrimenti
+            } else {
+                // se la condizione è falsa togliamo la classe active all'elemento sopra di esso specificando che l'elemento con index aumentato di uno gli va tolta la classe
+                anteprime[index + 1].classList.remove('active');
+        
+            }
+            
+            // assegna all'elemento con l'index corrente la classe active
+            anteprime[index].classList.add('active')
+            // sostituisce l'imaggine che l'immagine dell'elemento con index corrente subito dopo il click
+            contImgEl.src = immagini[index].image
+            // aggiunge il titolo e la descrizione riferite sempre al elemento della lista corrente (quindi specificando l'index contatore)
+            outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
+}
