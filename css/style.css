@@ -1,9 +1,22 @@
+.cont-bottoni {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 50px;
+}
+
+.cont-bottoni button {
+    color: white;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 255, 0.678);
+}
+
 #container {
 
     display: flex;
     justify-content: center;
 
-    padding-top: 100px;
+    padding-top: 30px;
 }
 
 #cont-interfaccia {
