@@ -63,6 +63,8 @@ let outputInfoEl = document.getElementById ('output-info')
 let frecciaSuEl = document.getElementById ('freccia-su')
 let frecciaGiuEl = document.getElementById ('freccia-giu')
 let contAnteprimeEl = document.getElementById ('cont-anteprime')
+let bottoneStartStopEl = document.getElementById ('bottone-start-stop')
+let bottoneReverseEl = document.getElementById ('bottone-reverse')
 
 // ciclo for che crea le anteprime da visualizzare in pagina a lato della immagine grande
 for (let i in immagini) {
@@ -100,8 +102,10 @@ anteprime[index].classList.add('active')
 // fa comparire in pagina il titolo e la descrizione relative sempre al primo elemento (index = 0)
 outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
 
+bottoneStartStopEl.addEventListener('click' , function() {
+    setInterval (cambiaImmagineInGiu , 3000 )
 
-setInterval (cambiaImmagineInGiu , 3000 )
+})
 
 // crea una funzione tramite il click sul tasto 'freccia-giu'
 frecciaGiuEl.addEventListener ('click' , function(){
