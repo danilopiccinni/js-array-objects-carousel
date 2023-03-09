@@ -31,6 +31,25 @@
     margin-bottom: 50px;
 }
 
+#cont-anteprime {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 25%;
+}
+
+#anteprime {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
 #cont-img {
     width: 1200px;
     object-fit: cover;
@@ -78,16 +97,6 @@
     opacity: 1;
 }
 
-#cont-anteprime {
-
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    width: 25%;
-}
 
 .anteprime {
 

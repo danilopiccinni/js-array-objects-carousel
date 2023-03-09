@@ -62,9 +62,11 @@ let contImgEl = document.getElementById ('cont-img')
 let outputInfoEl = document.getElementById ('output-info')
 let frecciaSuEl = document.getElementById ('freccia-su')
 let frecciaGiuEl = document.getElementById ('freccia-giu')
-let contAnteprimeEl = document.getElementById ('cont-anteprime')
+let contAnteprimeEl = document.getElementById ('anteprime')
 let bottoneStartStopEl = document.getElementById ('bottone-start-stop')
 let bottoneReverseEl = document.getElementById ('bottone-reverse')
+
+
 
 // ciclo for che crea le anteprime da visualizzare in pagina a lato della immagine grande
 for (let i in immagini) {
@@ -86,20 +88,41 @@ for (let i in immagini) {
     // appende l'elemento creato al contenitore scelto in pagina come output
     contAnteprimeEl.append (nuovaAnteprima)
 
+    nuovaAnteprima.addEventListener ('click' ,function(){
+        for (let i = 0 ; i < immagini.length ; i++){
+            anteprime[i].classList.remove ('active')
+        }
+        contImgEl.src = immagini[i].image
+        anteprime[i].classList.add ('active')
+        index = i
+
+    })
+
+
+
 }
 
+
+ 
 // tramite il querySelectorAll bersagliamo tutti gli elementi con una determinata classe ('anteprime')
 // assegnandola a una variabile che automaticamente viene creata come un array
 const anteprime = document.querySelectorAll ('.anteprime')
+
+console.log (anteprime)
+
+
+
+
+
 
 // immagine da visualizzare al caricamento della pagina
 // con indice 0 specifichiamo che trattiamo il primo elemento dell'array
 let index = 0;
 // assegnamo al src del contenitore scelto come output dell'immagine grande da visualizzare il valore 'image' riferito sempre al primo elemento (index=0)
 contImgEl.src = immagini[index].image
-// assegna al primo elemento (index=0) la classe active che servirà a rendere visibile questa anteprima piu' visibile delle altre 
+// // assegna al primo elemento (index=0) la classe active che servirà a rendere visibile questa anteprima piu' visibile delle altre 
 anteprime[index].classList.add('active')
-// fa comparire in pagina il titolo e la descrizione relative sempre al primo elemento (index = 0)
+// // fa comparire in pagina il titolo e la descrizione relative sempre al primo elemento (index = 0)
 outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
 
 let isGoing =false
@@ -139,6 +162,8 @@ bottoneReverseEl.addEventListener ('click' , function() {
 
 // crea una funzione tramite il click sul tasto 'freccia-giu'
 frecciaGiuEl.addEventListener ('click' , function(){
+
+
 
     cambiaImmagineInGiu()
     
@@ -199,6 +224,9 @@ frecciaSuEl.addEventListener ('click' , function() {
 
 
 }) 
+
+
+
 
 
 
