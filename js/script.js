@@ -105,6 +105,7 @@ outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text
 let isGoing =false
 let StartStop;
 bottoneStartStopEl.addEventListener('click' , function() {
+    clearInterval (scorriSolo)
     if (isGoing) {
         clearInterval(StartStop)
         isGoing = false
@@ -112,8 +113,24 @@ bottoneStartStopEl.addEventListener('click' , function() {
         StartStop = setInterval (cambiaImmagineInGiu , 3000 )
         isGoing = true
     }
-    
 })
+
+let verso = true
+let scorriVerso;
+bottoneReverseEl.addEventListener ('click' , function() {
+    if (verso) {
+        clearInterval(StartStop)
+        clearInterval(scorriSolo)
+        scorriVerso = setInterval (cambiaImmagineInSu, 3000)
+        verso=false
+
+    } else {
+        clearInterval(StartStop)
+        clearInterval (scorriSolo)
+        scorriVerso = setInterval (cambiaImmagineInGiu, 3000)
+        verso = true
+    }
+} )
 
 // crea una funzione tramite il click sul tasto 'freccia-giu'
 frecciaGiuEl.addEventListener ('click' , function(){
