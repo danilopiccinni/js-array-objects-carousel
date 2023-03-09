@@ -102,9 +102,17 @@ anteprime[index].classList.add('active')
 // fa comparire in pagina il titolo e la descrizione relative sempre al primo elemento (index = 0)
 outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text 
 
+let isGoing =false
+let StartStop;
 bottoneStartStopEl.addEventListener('click' , function() {
-    setInterval (cambiaImmagineInGiu , 3000 )
-
+    if (isGoing) {
+        clearInterval(StartStop)
+        isGoing = false
+    } else {
+        StartStop = setInterval (cambiaImmagineInGiu , 3000 )
+        isGoing = true
+    }
+    
 })
 
 // crea una funzione tramite il click sul tasto 'freccia-giu'
