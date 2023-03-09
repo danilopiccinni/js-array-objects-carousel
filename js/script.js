@@ -105,12 +105,15 @@ outputInfoEl.innerHTML = immagini[index].title + '<br>' + immagini[index].text
 let isGoing =false
 let StartStop;
 bottoneStartStopEl.addEventListener('click' , function() {
-    clearInterval (scorriSolo)
+    clearInterval (scorriVerso)
     if (isGoing) {
         clearInterval(StartStop)
         isGoing = false
-    } else {
+    } else if (!scorriVerso) {
         StartStop = setInterval (cambiaImmagineInGiu , 3000 )
+        isGoing = true
+    } else {
+        StartStop = setInterval (cambiaImmagineInSu , 3000 )
         isGoing = true
     }
 })
@@ -120,15 +123,17 @@ let scorriVerso;
 bottoneReverseEl.addEventListener ('click' , function() {
     if (verso) {
         clearInterval(StartStop)
-        clearInterval(scorriSolo)
+        clearInterval(scorriVerso)
         scorriVerso = setInterval (cambiaImmagineInSu, 3000)
         verso=false
+        isGoing = true
 
     } else {
         clearInterval(StartStop)
-        clearInterval (scorriSolo)
+        clearInterval (scorriVerso)
         scorriVerso = setInterval (cambiaImmagineInGiu, 3000)
         verso = true
+        isGoing = true
     }
 } )
 
